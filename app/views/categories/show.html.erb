@@ -1,0 +1,31 @@
+<h1 class="text-center my-4">Category</h1>
+<div class="card text-center mb-4 mx-5">
+  <div class="card-body">
+    <h5 class="card-title"><%= @category.name %></h5>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+<% if logged_in? && current_user.admin? %>
+  <div class="text-center mt-4">
+    <%= link_to "Edit category name", edit_category_path(@category), class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<h3 class="text-center mt-2">Articles</h3>
+
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<%= render 'articles/articles' %>
+
+<div class="flickr_pagination mb-4">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<p class="text-center">
+  <%= link_to 'Return to categories listing', categories_path, class: "btn btn-primary"%>
+</p>

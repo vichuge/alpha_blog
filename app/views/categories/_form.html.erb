@@ -1,0 +1,25 @@
+<% if @category.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h2>The following errors prevented the category from being saved</h2>
+    <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_with(model: @category, local: true, class: "form-class p-4") do |f| %>
+  <div class="mb-3">
+    <div class="row">
+      <div class="col-2">
+        <%= f.label :name, "Category name", class: "form-label text-white" , for: "exampleFormControlInput1"%>
+      </div>
+      <div class="col-10">
+        <%= f.text_field :name, class: "form-control", id: "exampleFormControlInput1", placeholder: "My category" %>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 text-center">
+    <%= f.submit class: "btn btn-outline-light" %>
+  </div>
+<% end %>

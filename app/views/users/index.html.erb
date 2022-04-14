@@ -1,0 +1,6 @@
+<h1 class="text-center">Alpha Bloggers</h1>
+<% if @users.any? %>
+  <%= render 'users' %>
+<% else %>
+  <p>No users yet.</p>
+<% end %>

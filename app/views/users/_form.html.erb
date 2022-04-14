@@ -1,0 +1,46 @@
+<% # debugger %>
+<% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h2>The following errors prevented the user from being saved</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_with(model: @user, local: true, class: "form-class p-4") do |f| %>
+  <div class="mb-3">
+    <div class="row">
+      <div class="col-2">
+        <%= f.label :username, class: "form-label text-white" , for: "exampleFormControlInput1"%>
+      </div>
+      <div class="col-10">
+        <%= f.text_field :username, class: "form-control", id: "exampleFormControlInput1", placeholder: "My username" %>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="row">
+      <div class="col-2">
+        <%= f.label :email, class: "form-label text-white" , for: "exampleFormControlInput1"%>
+      </div>
+      <div class="col-10">
+        <%= f.email_field :email, class: "form-control", id: "exampleFormControlTextarea1", placeholder: "user@example.com" %>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="row">
+      <div class="col-2">
+        <%= f.label :password, class: "form-label text-white" , for: "exampleFormControlInput1"%>
+      </div>
+      <div class="col-10">
+        <%= f.password_field :password, class: "form-control", id: "exampleFormControlTextarea1", placeholder: "Choose your password" %>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 text-center">
+    <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-outline-light") %>
+  </div>
+<% end %>
