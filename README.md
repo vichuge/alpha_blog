@@ -4,6 +4,8 @@
 
 This app is a blog written in Ruby on Rails. This project has session, sign up, sign in, sign out, and user profile. Each user can create a post on different categories. The application includes admin profiles too.
 
+[Live demo!](https://vic-alpha-blog.herokuapp.com/)
+
 ## Tests with minitest
 
 This website was tested with [minitest](https://rubygems.org/gems/minitest)
